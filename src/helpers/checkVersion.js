@@ -16,7 +16,9 @@ export default async function() {
 
     if (currentVersion !== latestVersion) {
       console.log('You are running an outdated version of the orionjs cli')
-      console.log('Please upgrade by running "yarn global upgrade @orion-js/cli"\n')
+      console.log(
+        'Please upgrade by running "yarn global upgrade @orion-js/cli"\n'
+      )
     }
   } catch (error) {}
 }

@@ -24,6 +24,7 @@
     "lodash": "^4.17.5",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
+    "semver": "^5.5.1",
     "walk-sync": "^0.3.2"
   },
   "devDependencies": {
@@ -38,5 +39,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "fastMinimalDependiencies": {
+    "vue": "3.0.0",
+    "quasar": "0.17.0"
   }
 }
