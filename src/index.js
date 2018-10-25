@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import program from 'commander'
 import init from './init'
+import pull from './pull'
 // import build from './build'
 import colors from 'colors/safe'
 // import create from './create'
@@ -9,6 +10,7 @@ import './handleErrors'
 
 const run = function(action) {
   return async function(dir, cmd) {
+    // console.log(dir, cmd)
     try {
       // await checkVersion()
       await action({ dir, cmd })
@@ -35,6 +37,11 @@ program
   .description('Creates a new translation group')
 
 program.command('shell').description('Interact with Fast project')
+
+program
+  .command('pull')
+  .description('Gets Form.io config with .env information')
+  .action(run(pull))
 
 // program
 //   .command('build')

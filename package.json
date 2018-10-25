@@ -23,6 +23,7 @@
     "hygen": "^1.6.2",
     "lodash": "^4.17.5",
     "request": "^2.88.0",
+    "request-progress": "^3.0.0",
     "request-promise": "^4.2.2",
     "semver": "^5.5.1",
     "walk-sync": "^0.3.2"
