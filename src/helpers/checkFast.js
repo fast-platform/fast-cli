@@ -1,10 +1,12 @@
 import fs from 'fs'
-import path from 'path'
 
-const checkIsFastProject = function() {
-  const fastDirname = path.dirname()
-  if (fs.existsSync(fastDirname)) return true
-  return false
+export default async function() {
+  const fastDirname = '.fast'
+  if (!(await fs.existsSync(fastDirname))) {
+    console.log(
+      'You are calling a fast function outside of fast project, Please install by running\n'
+    )
+    console.log('\t fast init <project-name>')
+    return false
+  }
 }
-
-export default checkIsFastProject

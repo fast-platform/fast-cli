@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import program from 'commander'
 import init from './init'
+import page from './generate/page'
 // import build from './build'
 import colors from 'colors/safe'
 // import create from './create'
@@ -29,6 +30,7 @@ program.command('generate:component').description('Creates a new Vue Component')
 program
   .command('generate:page')
   .description('Creates a new Page with custom route')
+  .action(run(page))
 
 program
   .command('generate:translations')
