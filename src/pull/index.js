@@ -15,26 +15,21 @@ export default async function (params) {
     return
   }
 
-  const OFFLINE_START = getEnv('OFFLINE_START')
-  const FAST_CONFIG_ID = getEnv('FAST_CONFIG_ID')
+  const FLUENT_FORMIO_BASEURL = getEnv('FLUENT_FORMIO_BASEURL')
   const FAST_CONFIG_URL = getEnv('FAST_CONFIG_URL')
 
   const dir = './.fast/offline'
 
   await deleteFolder(dir)
 
-  if (OFFLINE_START === 'true') {
-    const url = FAST_CONFIG_URL + 'configuration/submission/' + FAST_CONFIG_ID
+  // const url = FAST_CONFIG_URL + 'configuration/submission/' + FAST_CONFIG_ID
 
-    let res
-
-    res = await configuration(dir, url)
-    await roles(dir, res)
-    await translations(dir, res)
-    await pages(dir, res)
-    await forms(dir, res)
-    await lastUpdate(dir)
-  }
+  let res = await configuration(dir, FAST_CONFIG_URL)
+  await roles(dir, res)
+  await translations(dir, res)
+  await pages(dir, res)
+  await forms(dir, res)
+  await lastUpdate(dir)
 
   console.log('Form.io config files set!')
 }
