@@ -11,9 +11,11 @@
     "build": "rm -rf ./build && babel ./src --out-dir ./build",
     "prepare": "yarn run build",
     "watch": "rm -rf ./build && babel ./src --watch --out-dir ./build",
-    "test": "exit 0"
+    "test": "exit 0",
+    "quasar": "quasar dev"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-plugin-source-map-support": "^2.0.1",
     "chokidar": "^2.0.4",
@@ -22,8 +24,8 @@
     "globby": "^8.0.1",
     "hygen": "^1.6.2",
     "lodash": "^4.17.5",
+    "progress": "^2.0.1",
     "request": "^2.88.0",
-    "request-progress": "^3.0.0",
     "request-promise": "^4.2.2",
     "semver": "^5.5.1",
     "walk-sync": "^0.3.2"

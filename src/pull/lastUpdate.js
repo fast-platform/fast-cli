@@ -1,6 +1,7 @@
 import fs from 'fs'
 
-export default async function (dir) {
+export default async function (dir, bar) {
+  bar.tick({ name: 'last update' })
   // Store last update
   const lastUpdate = JSON.stringify({date: Math.round((new Date()).getTime() / 1000)})
 

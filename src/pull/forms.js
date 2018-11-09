@@ -1,10 +1,11 @@
 import fs from 'fs'
 import doRequest from '../helpers/doRequest'
 
-export default async function (dir, res) {
+export default async function (dir, res, bar) {
   // Get Forms
   try {
-    const forms = JSON.parse(await doRequest(res.data.APP_URL + '/form?limit=99999'))
+    bar.tick({ name: 'forms' })
+    const forms = await doRequest(res.data.APP_URL + '/form?limit=99999')
     fs.writeFile(dir + '/Forms.json', JSON.stringify(forms), 'utf8', function(err) {
       if (err) throw err
     })
