@@ -2,6 +2,7 @@
 import program from 'commander'
 import init from './init'
 import pull from './pull'
+import runServer from './run'
 // import build from './build'
 import colors from 'colors/safe'
 // import create from './create'
@@ -42,6 +43,11 @@ program
   .command('pull')
   .description('Gets Form.io config with .env information')
   .action(run(pull))
+
+program
+  .command('run')
+  .description('Runs dev build for the current Fast project.')
+  .action(run(runServer))
 
 // program
 //   .command('build')
