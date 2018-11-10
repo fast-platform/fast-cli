@@ -5,6 +5,7 @@ import pull from './pull'
 import runServer from './run'
 // import build from './build'
 import colors from 'colors/safe'
+import './helpers/fastLogo'
 // import create from './create'
 // import checkVersion from './helpers/checkVersion'
 import './handleErrors'
@@ -19,7 +20,7 @@ const run = function(action) {
       console.error(colors.red('Error: ' + e.message))
     }
   }
-}
+};
 
 program
   .command('init')
@@ -27,17 +28,19 @@ program
   .option('--name [name]', 'Name of the project')
   .action(run(init))
 
-program.command('generate:component').description('Creates a new Vue Component')
+// program
+//   .command('generate:component')
+//   .description('Creates a new Vue Component')
 
-program
-  .command('generate:page')
-  .description('Creates a new Page with custom route')
+// program
+//   .command('generate:page')
+//   .description('Creates a new Page with custom route')
 
-program
-  .command('generate:translations')
-  .description('Creates a new translation group')
+// program
+//   .command('generate:translations')
+//   .description('Creates a new translation group')
 
-program.command('shell').description('Interact with Fast project')
+// program.command('shell').description('Interact with Fast project')
 
 program
   .command('pull')
