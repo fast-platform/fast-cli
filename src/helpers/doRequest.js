@@ -1,18 +1,11 @@
-import progress from 'request-progress'
-import request from 'request'
+import axios from 'axios'
 
-export default function (url) {
-  return new Promise(function (resolve, reject) {
-    progress(
-      request(url, function (error, res, body) {
-        if (!error && res.statusCode === 200) {
-          resolve(body)
-        } else {
-          reject(error)
-        }
-      })
-    ).on('progress', state => {
-      console.log(state)
-    }).on('end', () => {})
-  })
+export default async function (url) {
+  try {
+    const response = await axios.get(url)
+
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
 }
