@@ -3,6 +3,7 @@ import program from 'commander'
 import init from './init'
 import pull from './pull'
 import runServer from './run'
+import migrate from './migrate'
 // import build from './build'
 import colors from 'colors/safe'
 import './helpers/fastLogo'
@@ -49,8 +50,19 @@ program
 
 program
   .command('run')
-  .description('Runs dev build for the current Fast project.')
+  .description('Runs dev build for the current FAST project.')
   .action(run(runServer))
+
+program
+  .command('migrate <file>')
+  .option('-u, --url [URL]', 'Existing project url')
+  .option('-p, --path [Path to form]', 'Path where data should be imported')
+  .option('-k, --dst-key [API key]', 'Form.io API key')
+  .description('Migrate data from a JSON file to an existing FAST project')
+  // eslint-disable-next-line
+  .action((file, cmd) => {
+    migrate(file, cmd)
+  })
 
 // program
 //   .command('build')
