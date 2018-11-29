@@ -1,6 +1,6 @@
 {
   "name": "fast-fastcli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "index.js",
   "author": "Robert Zibert",
   "license": "MIT",
@@ -15,12 +15,16 @@
     "quasar": "quasar dev"
   },
   "dependencies": {
+    "await-to-js": "^2.1.1",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-plugin-source-map-support": "^2.0.1",
+    "babel-polyfill": "^6.26.0",
     "chokidar": "^2.0.4",
     "colors": "^1.2.1",
     "commander": "^2.15.1",
+    "fast-fluent": "^0.1.18",
+    "fluent-formio": "^0.1.3",
     "globby": "^8.0.1",
     "hygen": "^1.6.2",
     "lodash": "^4.17.5",
