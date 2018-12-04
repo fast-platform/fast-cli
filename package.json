@@ -18,13 +18,18 @@
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-plugin-source-map-support": "^2.0.1",
+    "child-process-promise": "^2.2.1",
     "chokidar": "^2.0.4",
     "colors": "^1.2.1",
     "commander": "^2.15.1",
     "globby": "^8.0.1",
+    "gradient-string": "^1.2.0",
     "hygen": "^1.6.2",
+    "inquirer": "^6.2.0",
     "lodash": "^4.17.5",
+    "ora": "^3.0.0",
     "progress": "^2.0.1",
+    "prompt-checkbox": "^2.2.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "semver": "^5.5.1",
@@ -45,6 +50,7 @@
   },
   "fastMinimalDependiencies": {
     "vue": "3.0.0",
-    "quasar": "0.17.0"
+    "quasar": "0.17.0",
+    "docker": "17.12.0"
   }
 }

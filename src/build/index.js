@@ -1,18 +1,37 @@
-import compile from './compile'
-import os from 'os'
-import createPackageJSON from './createPackageJSON'
-import colors from 'colors/safe'
-import copyFiles from './copyFiles'
-
-export default async function({output}) {
-  if (!output) {
-    throw new Error('Output dir is required')
-  }
-
-  const finalDirPath = output.replace('~', os.homedir())
-  console.log(colors.bold('Compiling your app...'))
-  await compile(finalDirPath)
-  createPackageJSON(finalDirPath)
-  copyFiles(finalDirPath)
-  console.log(colors.bold('Build created'))
+import inquirer from 'inquirer'
+import compiler from '../helpers/compiler'
+export default async function() {
+  inquirer
+    .prompt([
+      {
+        type: 'checkbox',
+        message: 'Select operative system you want to compile',
+        name: 'devices',
+        choices: [
+          new inquirer.Separator('==== Mobile ===='),
+          {
+            name: 'Android'
+          },
+          {
+            name: 'iOS'
+          },
+          new inquirer.Separator('==== Desktop ===='),
+          {
+            name: 'Windows'
+          },
+          {
+            name: 'OSX'
+          }
+        ],
+        validate: function(answer) {
+          if (answer.length < 1) {
+            return 'You must choose at least one topping.'
+          }
+          return true
+        }
+      }
+    ])
+    .then(async answers => {
+      await compiler(answers)
+    })
 }

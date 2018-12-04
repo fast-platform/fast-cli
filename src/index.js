@@ -3,9 +3,9 @@ import program from 'commander'
 import init from './init'
 import pull from './pull'
 import runServer from './run'
-// import build from './build'
+import build from './build'
 import colors from 'colors/safe'
-import './helpers/fastLogo'
+import logo from './helpers/fastLogo'
 // import create from './create'
 // import checkVersion from './helpers/checkVersion'
 import './handleErrors'
@@ -20,7 +20,9 @@ const run = function(action) {
       console.error(colors.red('Error: ' + e.message))
     }
   }
-};
+}
+
+program.description('testing')
 
 program
   .command('init')
@@ -52,11 +54,11 @@ program
   .description('Runs dev build for the current Fast project.')
   .action(run(runServer))
 
-// program
-//   .command('build')
-//   .description('Compiles an Orionjs app and exports it to a simple nodejs app')
-//   .option('-o, --output [output]', 'Output directory')
-//   .action(run(build))
+program
+  .command('build')
+  .description('Compiles Fast-Client project for any device')
+  // .option('-o, --output [output]', 'Output directory')
+  .action(run(build))
 
 // program
 //   .command('create')
@@ -70,5 +72,6 @@ program.version(require('../package.json').version, '-v --version')
 program.parse(process.argv)
 
 if (!process.argv.slice(2).length) {
+  console.log(logo)
   program.outputHelp()
 }
